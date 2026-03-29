@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import urllib.parse
 
-st.set_page_config(page_title="Fee Management Portal", page_icon="📊", layout="wide")
+st.set_page_config(page_title="Fee Management Portal", page_icon="📊", layout="wide",initial_sidebar_state="collapsed")
 
 
 FILE = "students.csv"
