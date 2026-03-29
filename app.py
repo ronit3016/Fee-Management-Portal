@@ -61,7 +61,7 @@ def get_whatsapp_link(phone, name, fees, month_dict):
 
     for m in pending_months:
         message += f"• {m} - ₹{fees}\n"
-        total_due += fees
+        total_due += int(fees)
 
     message += f"\nTotal Due: ₹{total_due}\n\nPlease pay at your earliest convenience. Thank you!"
 
