@@ -167,20 +167,17 @@ elif menu == "Dashboard":
     pending_students = 0
     total_collection = 0
 
-    for _, row in df.iterrows():
-        month_dict = parse_months(row["months"])
+for _, row in df.iterrows():
+    month_dict = parse_months(row["months"])
 
-        # If ALL months paid → student paid
-        if all(status == "Paid" for status in month_dict.values()):
-            paid_students += 1
-        else:
-            pending_students += 1
+    if all(status == "Paid" for status in month_dict.values()):
+        paid_students += 1
+    else:
+        pending_students += 1
 
-        # Collection = sum of all paid months
-        for m in MONTHS:
-            if month_dict[m] == "Paid":
-                total_collection += row["fees"]
-
+    # 💰 Calculate pending amount
+    pending_months = [m for m, status in month_dict.items() if status == "Pending"]
+    total_collection += len(pending_months) * int(row["fees"])
     st.metric("Total Students", total_students)
     st.metric("Paid Students (All Months)", paid_students)
     st.metric("Pending Students", pending_students)
