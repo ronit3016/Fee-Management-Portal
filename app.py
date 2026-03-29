@@ -47,7 +47,7 @@ st.title("📚 Fee Management Portal")
 st.sidebar.title("Menu")
 
 if "page" not in st.session_state:
-    st.session_state.page = "Dashboard"
+    st.session_state.page = "Add Student"
 
 if st.sidebar.button("➕ Add Student"):
     st.session_state.page = "Add Student"
