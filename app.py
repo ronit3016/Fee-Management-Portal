@@ -158,14 +158,7 @@ elif menu == "View Students":
             st.divider()
 
 # ---------------- DASHBOARD ----------------
-elif menu == "Dashboard":
-    st.subheader("📊 Dashboard")
-
-    total_students = len(df)
-
-    paid_students = 0
-    pending_students = 0
-    total_collection = 0
+total_collection = 0
 
 for _, row in df.iterrows():
     month_dict = parse_months(row["months"])
@@ -178,7 +171,3 @@ for _, row in df.iterrows():
     # 💰 Calculate pending amount
     pending_months = [m for m, status in month_dict.items() if status == "Pending"]
     total_collection += len(pending_months) * int(row["fees"])
-    st.metric("Total Students", total_students)
-    st.metric("Paid Students (All Months)", paid_students)
-    st.metric("Pending Students", pending_students)
-    st.metric("Total Collection ₹", total_collection)
