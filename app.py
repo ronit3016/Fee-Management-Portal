@@ -49,14 +49,14 @@ st.sidebar.title("Menu")
 if "page" not in st.session_state:
     st.session_state.page = "Dashboard"
 
-if st.sidebar.button("📊 Dashboard"):
-    st.session_state.page = "Dashboard"
-
 if st.sidebar.button("➕ Add Student"):
     st.session_state.page = "Add Student"
 
 if st.sidebar.button("📋 View Students"):
     st.session_state.page = "View Students"
+
+if st.sidebar.button("📊 Dashboard"):
+    st.session_state.page = "Dashboard"
 
 menu = st.session_state.page
 
