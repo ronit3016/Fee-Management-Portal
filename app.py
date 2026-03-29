@@ -55,11 +55,11 @@ if st.sidebar.button("➕ Add Student"):
 
 if st.sidebar.button("📋 View Students"):
     st.session_state.page = "View Students"
-     st.rerun()
+    st.rerun()
 
 if st.sidebar.button("📊 Dashboard"):
     st.session_state.page = "Dashboard"
-     st.rerun()
+    st.rerun()
 
 menu = st.session_state.page
 
